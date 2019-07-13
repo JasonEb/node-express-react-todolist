@@ -1,6 +1,7 @@
 import express from 'express';
 import dataArray from './db/db';
-import bodyParser from 'body-parser';
+import bodyParser from 'body-parser'
+import path from 'path'
 
 const app = express();
 // Parse incoming requests data
@@ -81,6 +82,11 @@ app.delete('/api/todos/:id', (req, res) => {
 	
 	
 	});
+
+//frontend
+app.get('/', function (req, res) {
+	res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
+});  
 
 
 const PORT = 6969;
