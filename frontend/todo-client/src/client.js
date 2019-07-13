@@ -1,18 +1,22 @@
 import React from 'react';
-import TodoIndex from './components/TodoList'
+import TodoIndex from './components/TodoIndex'
 import {useState, useEffect} from 'react';
 
-function App() {
+function Client() {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
     fetchTodos().then ( (resp)=>{
-      debugger
+      let todos = resp.todos
+      setTodos(todos)
     })
   }, []);
 
   return (
-    <TodoIndex />
+    <div>
+      <h1>Todos Index</h1>
+      <TodoIndex todos={todos}/>
+    </div>
   );
 }
 
@@ -23,5 +27,5 @@ export const fetchTodos = () => {
       .then( (response) => response.json());
 };
 
-export default App;
+export default Client;
 
