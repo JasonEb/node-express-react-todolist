@@ -1,9 +1,14 @@
-import express from 'express';
-import dataArray from './db/db';
+import express from 'express'
+import dataArray from './db/db'
 import bodyParser from 'body-parser'
 import path from 'path'
+import cors from 'cors'
 
 const app = express();
+
+//setup cors
+app.use(cors({}));
+
 // Parse incoming requests data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
