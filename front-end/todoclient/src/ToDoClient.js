@@ -3,6 +3,7 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 
 import ToDoIndex from './ToDoIndex'
+import ToDoForm from './ToDoForm'
 
 function ToDoClient() {
   //set up 'todos' default empty array 
@@ -25,9 +26,11 @@ function ToDoClient() {
     <div className="ToDoClient">
       {/* name of property to be sent to child*/}
       <ToDoIndex fakeTodos={todos} />
+      <ToDoForm />
     </div>
   );
 }
+
 //helper function to fetch from backend
 export const fetchTodos = () => {
   const apiUrl = 'http://localhost:6969/api/todos';
